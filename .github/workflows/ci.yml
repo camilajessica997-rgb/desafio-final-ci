@@ -14,9 +14,7 @@ jobs:
 
     steps:
       - name: Baixar código
-        uses: actions/checkout@v4
-        with:
-          node-version: 24
+        uses: actions/checkout@v5
 
       - name: Configurar Python
         uses: actions/setup-python@v6
