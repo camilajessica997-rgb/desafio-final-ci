@@ -9,21 +9,25 @@ on:
 
 jobs:
   testes:
+    name: testes
     runs-on: ubuntu-latest
 
     steps:
       - name: Baixar código
         uses: actions/checkout@v4
+        with:
+          node-version: 24
 
       - name: Configurar Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.13'
 
       - name: Instalar dependências
         run: |
-          pip install -r requirements.txt
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
 
       - name: Executar testes
         run: |
-          pytest -v
+          python -m pytest -v
